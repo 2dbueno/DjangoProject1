@@ -83,6 +83,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
+]
+
+LOGIN_URL = "login_user"  # Nome da view de login
+LOGIN_REDIRECT_URL = "todo_list"  # Página para redirecionar após o login bem-sucedido
+
 LANGUAGE_CODE = "pt-br"
 
 TIME_ZONE = "America/Sao_Paulo"

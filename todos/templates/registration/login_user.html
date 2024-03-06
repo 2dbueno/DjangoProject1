@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Cadastro</title>
+    <title>Login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
         body {
@@ -40,7 +40,6 @@
 
         /* Adicione um pouco de espaço para os campos de entrada */
         input[type="text"],
-        input[type="email"],
         input[type="password"] {
             width: 100%;
             padding: 10px;
@@ -54,8 +53,8 @@
 <body>
 
 <div class="container">
-    <h2 class="text-center">Cadastro</h2>
-    <form method="post" action="{% url 'register_user' %}">
+    <h2 class="text-center">Login</h2>
+    <form method="post" action="{% url 'login_user' %}">
         {% csrf_token %}
         
         <div class="form-group">
@@ -64,21 +63,11 @@
         </div>
         
         <div class="form-group">
-            {{ form.email.label_tag }}
-            {{ form.email }}
+            {{ form.password.label_tag }}
+            {{ form.password }}
         </div>
         
-        <div class="form-group">
-            {{ form.password1.label_tag }}
-            {{ form.password1 }}
-        </div>
-        
-        <div class="form-group">
-            {{ form.password2.label_tag }}
-            {{ form.password2 }}
-        </div>
-        
-        <button class="btn btn-primary submit-button" type="submit">Cadastrar</button>
+        <button class="btn btn-primary submit-button" type="submit">Entrar</button>
     </form>
 </div>
 

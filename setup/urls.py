@@ -7,6 +7,7 @@ from todos.views import (
     TodoDeleteView,
     TodoCompleteView,
     RegisterUserView,
+    LoginView,
 )
 
 urlpatterns = [
@@ -17,4 +18,5 @@ urlpatterns = [
     path("delete/<int:pk>", TodoDeleteView.as_view(), name="todo_delete"),
     path("complete/<int:pk>", TodoCompleteView.as_view(), name="todo_complete"),
     path("register_user/", RegisterUserView.as_view(), name="register_user"),
+    path("login_user/", LoginView.as_view(), name="login_user"),
 ]

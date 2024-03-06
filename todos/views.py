@@ -1,9 +1,13 @@
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView, View
-from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.hashers import make_password
 from django.shortcuts import get_object_or_404, redirect, render
-from .models import Todo, Users
-from .forms import TodoForm
+from django.urls import reverse, reverse_lazy
+from django.utils.decorators import method_decorator
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, View
 from crispy_forms.helper import FormHelper
+from .forms import TodoForm, CustomUserCreationForm, CustomAuthenticationForm
+from .models import Todo, CustomUser
 
 
 class TodoListView(ListView):
@@ -43,19 +47,42 @@ class TodoCompleteView(View):
 
 class RegisterUserView(View):
     template_name = "registration/register_user.html"
+    form_class = CustomUserCreationForm
 
     def get(self, request):
-        return render(request, self.template_name)
+        form = self.form_class()
+        return render(request, self.template_name, {"form": form})
 
     def post(self, request):
-        nome_usuario = request.POST["uname"]
-        email = request.POST["email"]
-        senha = request.POST["psw"]
+        form = self.form_class(request.POST)
 
-        # Crie um novo usuário no banco de dados
-        Users.objects.create(nome_usuario=nome_usuario, email=email, senha=senha)
+        if form.is_valid():
+            form.instance.password = make_password(form.cleaned_data["password1"])
+            user = form.save()
 
-        # Redirecione para a página desejada após o cadastro
-        return redirect(
-            "todo_list"
-        )  # Substitua 'pagina_sucesso' pelo nome da sua página de sucesso
+            return redirect(reverse("todo_list"))
+
+        return render(request, self.template_name, {"form": form})
+
+
+class LoginView(View):
+    template_name = "registration/login_user.html"
+
+    def get(self, request, *args, **kwargs):
+        form = CustomAuthenticationForm()
+        return render(request, self.template_name, {"form": form})
+
+    def post(self, request, *args, **kwargs):
+        form = CustomAuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            auth_user = authenticate(
+                request,
+                username=form.cleaned_data["username"],
+                password=form.cleaned_data["password"],
+            )
+
+            if auth_user is not None:
+                login(request, auth_user)
+                return redirect("todo_list")
+
+        return render(request, self.template_name, {"form": form})

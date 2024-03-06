@@ -1,5 +1,6 @@
 from datetime import date
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 
 class Todo(models.Model):
@@ -19,7 +20,8 @@ class Todo(models.Model):
             self.save()
 
 
-class Users(models.Model):
-    nome_usuario = models.CharField(max_length=100)
-    email = models.EmailField()
-    senha = models.CharField(max_length=100)
+class CustomUser(AbstractUser):
+    groups = models.ManyToManyField("auth.Group", related_name="custom_users_groups")
+    user_permissions = models.ManyToManyField(
+        "auth.Permission", related_name="custom_users_permissions"
+    )
