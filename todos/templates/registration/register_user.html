@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f8f9fa; }
+        .container { max-width: 400px; margin: 100px auto; }
+        .form-group { margin-bottom: 20px; }
+        .submit-button { background-color: #28a745; color: white; }
+        .submit-button:hover { background-color: #218838; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <form method="post" action="{% url 'register_user' %}">
+        <div class="form-group">
+            <label for="uname"><b>Nome de Usuário</b></label>
+            <input type="text" class="form-control" placeholder="Digite o Nome de Usuário" name="uname" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email"><b>Email</b></label>
+            <input type="email" class="form-control" placeholder="Digite o Email" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="psw"><b>Senha</b></label>
+            <input type="password" class="form-control" placeholder="Digite a Senha" name="psw" required>
+        </div>
+
+        {% csrf_token %}
+
+        <button class="btn btn-primary submit-button" type="submit">Cadastrar</button>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>

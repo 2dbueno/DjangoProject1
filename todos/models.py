@@ -17,3 +17,9 @@ class Todo(models.Model):
         if not self.finished_at:
             self.finished_at = date.today()
             self.save()
+
+
+class Users(models.Model):
+    nome_usuario = models.CharField(max_length=100)
+    email = models.EmailField()
+    senha = models.CharField(max_length=100)
