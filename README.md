@@ -12,25 +12,6 @@ O Projeto Todo-List Django é uma aplicação web desenvolvida utilizando o fram
 
 - **Marcação de Conclusão:** Marque suas tarefas como concluídas, mantendo um histórico claro.
 
-# Como Iniciar
-
-# Clone o Repositório:
-git clone https://github.com/seuusuario/seuprojeto.git
-
-# Acesse o Diretório do Projeto:
-cd seuprojeto
-
-# Instale as Dependências:
-pip install -r requirements.txt
-
-# Execute as Migrações:
-python manage.py migrate
-
-# Inicie o Servidor de Desenvolvimento:
-python manage.py runserver
-
-Acesse o Aplicativo em http://localhost:8000
-
 # Explore as Funcionalidades
 Página Inicial: Visualize suas tarefas pendentes e concluídas.
 
