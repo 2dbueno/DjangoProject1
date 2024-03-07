@@ -31,7 +31,7 @@ python manage.py runserver
 
 Acesse o Aplicativo em http://localhost:8000
 
-#Explore as Funcionalidades
+# Explore as Funcionalidades
 Página Inicial: Visualize suas tarefas pendentes e concluídas.
 
 Criar Nova Tarefa: Adicione uma nova tarefa com título e prazo.
