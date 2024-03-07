@@ -4,10 +4,21 @@ from django.contrib.auth.hashers import make_password
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView, View
+from django.views.generic import (
+    TemplateView,
+    ListView,
+    CreateView,
+    UpdateView,
+    DeleteView,
+    View,
+)
 from crispy_forms.helper import FormHelper
 from .forms import TodoForm, CustomUserCreationForm, CustomAuthenticationForm
 from .models import Todo, CustomUser
+
+
+class HomePageView(TemplateView):
+    template_name = "home/home.html"
 
 
 class TodoListView(ListView):

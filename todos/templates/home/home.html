@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Página Inicial - Seu Site</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <header class="text-center bg-light p-3">
+        <h1>Gerencie suas tarefas</h1>
+    </header>
+
+    <div class="options text-center mt-4">
+        <a href="{% url 'login_user' %}" class="btn btn-primary">Login</a>
+        <a href="{% url 'register_user' %}" class="btn btn-secondary">Cadastro</a>
+        <a href="{% url 'todo_list' %}" class="btn btn-info">Tarefas</a>
+    </div>    
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card-deck">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Cadastre suas tarefas</h5>
+                            <p class="card-text">Marque datas de entrega, poste atualizações e gerencie suas atividades.</p>
+                        </div>
+                    </div>
+                    <!-- Adicione mais cards conforme necessário -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Adicione seus scripts JS personalizados aqui, se necessário -->
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
