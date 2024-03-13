@@ -1,0 +1,91 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+}
+
+.navbar-brand {
+    color: #fff;
+
+}
+.navbar {
+    background-color: #343a40;
+    padding: 15px 120px; /* Adicionando padding apenas nos lados */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-nav {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    text-align: center; /* Centralizando o conteúdo dos links */
+}
+
+.navbar-nav li {
+    margin-right: 15px;
+    position: relative;
+}
+
+.navbar-nav li:last-child {
+    margin-right: 0;
+}
+
+.navbar-nav li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.welcome-card {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.card-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.card-text {
+    text-align: center;
+    font-size: 16px;
+    color: #666;
+}
+
+.home-img {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-end; /* Ajustado para "flex-end" para alinhar ao final */
+}
+
+.home-img img {
+    max-width: 100%;
+    height: auto; /* Ajustado para "auto" para manter a proporção */
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

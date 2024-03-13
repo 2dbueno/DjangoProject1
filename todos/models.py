@@ -1,9 +1,11 @@
 from datetime import date
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.contrib.auth import get_user_model
 
 
 class Todo(models.Model):
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     title = models.CharField(
         verbose_name="Título", max_length=100, null=False, blank=False
     )

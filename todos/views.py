@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.hashers import make_password
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
@@ -21,21 +22,22 @@ class HomePageView(TemplateView):
     template_name = "home/home.html"
 
 
-class TodoListView(ListView):
+class TodoListView(LoginRequiredMixin, ListView):
     model = Todo
     template_name = "todo/todo_list.html"
 
+    def get_queryset(self):
+        return Todo.objects.filter(user=self.request.user)
 
-class TodoCreateView(CreateView):
+
+class TodoCreateView(LoginRequiredMixin, CreateView):
     model = Todo
     form_class = TodoForm
     success_url = reverse_lazy("todo_list")
 
-    def get_form(self, form_class=None):
-        form = super().get_form(form_class)
-        form.helper = FormHelper()
-        form.helper.form_tag = False
-        return form
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 
 class TodoUpdateView(UpdateView):
