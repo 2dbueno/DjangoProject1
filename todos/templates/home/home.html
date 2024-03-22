@@ -14,10 +14,12 @@
         <ul class="navbar-nav">
             {% if user.is_authenticated %}
             <li>
-                <form action="{% url 'logout' %}" method="post">
+                <form action="{% url 'logout' %}" method="post" class="d-flex">
                     {% csrf_token %}
-                    <button type="submit">Logout</button>
+                    <button type="submit" class="btn btn-danger logout-button">Logout</button>
                 </form>
+                
+                
             </li>
             {% else %}
             <li><a href="{% url 'login_user' %}">Login</a></li>
@@ -26,18 +28,13 @@
             <li><a href="{% url 'todo_list' %}">Tarefas</a></li>
         </ul>
     </nav>
-
-    <div class="home-img">
-        <img src="static/img/home-img.svg"
-            alt="Drawing of a man sitting programming on his notebook with a cup of coffee at his side">
-    </div>          
+           
     <div class="welcome-card card">
         <div class="card-body">
-  
             <h2 id="welcome-heading" class="card-title">Bem-vindo ao nosso Gerenciador de Tarefas!</h2>
             <p class="card-text">Aqui você pode organizar suas tarefas diárias de forma simples e eficiente. Nunca mais se esqueça de uma tarefa importante!</p>
             <p class="card-text">Adicione novas tarefas, atualize seus detalhes e marque como concluídas com facilidade.</p>
         </div>
-    </div>
+    </div>    
 </body>
 </html>

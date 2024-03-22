@@ -1,4 +1,7 @@
-/* Reset CSS */
+:root {
+    --bg-color: #2C3333;
+  }
+  
 * {
     margin: 0;
     padding: 0;
@@ -7,16 +10,16 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
+    background-color: var(--bg-color);
     margin: 0;
 }
 
 .navbar-brand {
-    color: #fff;
+    color: #ffffff;
 
 }
 .navbar {
-    background-color: #343a40;
+    background-color:#202525;
     padding: 15px 120px; /* Adicionando padding apenas nos lados */
     display: flex;
     justify-content: space-between;
@@ -46,9 +49,12 @@ body {
 }
 
 .welcome-card {
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    padding: 20px;
+    width: 350px;
+    /* Centralizar na vertical e na horizontal */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .card-title {
@@ -56,24 +62,13 @@ body {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
-    color: #333;
+    color: #ffffff;
 }
 
 .card-text {
     text-align: center;
     font-size: 16px;
-    color: #666;
-}
-
-.home-img {
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: flex-end; /* Ajustado para "flex-end" para alinhar ao final */
-}
-
-.home-img img {
-    max-width: 100%;
-    height: auto; /* Ajustado para "auto" para manter a proporção */
+    color: #919191;
 }
 
 /* Scrollbar */
@@ -88,4 +83,22 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
+}
+
+.logout-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.logout-button:hover {
+    background-color: #c82333;
+}
+
+.logout-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.5);
 }
