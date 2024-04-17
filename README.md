@@ -1,5 +1,7 @@
 ## Visão Geral
 
+[![GitHub watchers](https://img.shields.io/github/watchers/2dbueno/StrapDown.js.svg?style=social&label=Watch&maxAge=2592000)](https://GitHub.com/2dbueno/StrapDown.js/watchers/)
+
 O Projeto Todo-List Django é uma aplicação web desenvolvida utilizando o framework Django para ajudar você a gerenciar suas tarefas diárias de forma eficiente. Com recursos intuitivos e uma interface amigável, você pode organizar suas atividades, definir prazos e manter o controle de suas conquistas.
 
 ## Funcionalidades Principais
