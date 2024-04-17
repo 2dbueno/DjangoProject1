@@ -81,12 +81,12 @@ nav ul li a:hover {
   * Style the logout button.
   */
 .logout-button {
-  background-color: #1db954;
+  background-color: #e2232c;
   color: #FFFFFF;
   border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 18px;
+  border-radius: 10px;
+  padding: 5px 10px;
+  font-size: 15px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -95,7 +95,7 @@ nav ul li a:hover {
   * Change the background color of the logout button on hover.
   */
 .logout-button:hover {
-  background-color: #121212;
+  background-color: #f3252f;
 }
 
 /**
